@@ -28,13 +28,13 @@ NovaSliderField::make('Percentage');
 
 ### min
 ```php
-NovaSliderField::make('Percentage')->min(50);
+NovaSliderField::make('Distance')->min(50);
 ```
 Sets the minimum value, defaults to 0.
 
 ### max
 ```php
-NovaSliderField::make('Percentage')->min(200);
+NovaSliderField::make('Distance')->max(200);
 ```
 Set the maximum value, defaults to 100.
 
@@ -58,7 +58,7 @@ Show a tooltip on hover on the detail page.
 
 ### formatter
 ```php
-NovaSliderField::make('Percentage')->formatter(50);
+NovaSliderField::make('Price')->formatter("€ {value}");
 ```
 Custom formatter for the text in the tooltip.
 This is a string which has to contain `{value}`, for example `{value} %`
