@@ -1,17 +1,18 @@
 <template>
     <panel-item :field="field">
-        <template slot="value">
+        <template slot="value" v-if="!field.detailAsValue">
             <div class="flex items-center flex-wrap h-4">
                 <div class="w-1/3">
                     <vue-slider ref="slider" v-model="field.value"
-                                tooltip="false"
+                                :tooltip="tooltip"
                                 disabled
+                                :dot-style="{ display: 'none' }"
                                 :dot-size="0"
-                                :disabled-style="{cursor: 'default', opacity: 1}"
-                                :disabled-dot-style="{cursor: 'default', display: 'none'}"
+                                :rail-style="{ cursor: 'default' }"
                                 :min="field.min || 0"
                                 :max="field.max || 100"
-                                :interval="field.interval || 1">
+                                :interval="field.interval || 1"
+                                style="cursor: default; opacity: 1;">
                     </vue-slider>
                 </div>
             </div>
@@ -20,11 +21,22 @@
 </template>
 
 <script>
-import vueSlider from 'vue-slider-component'
-export default {
-    components: {
-        vueSlider,
-    },
-    props: ['resource', 'resourceName', 'resourceId', 'field'],
-}
+    import VueSlider from 'vue-slider-component'
+    import 'vue-slider-component/theme/default.css'
+
+    export default {
+        components: {
+            VueSlider,
+        },
+        props: ['resource', 'resourceName', 'resourceId', 'field'],
+        computed: {
+            tooltip() {
+                if (this.field.hideTooltipOnDetail) {
+                    return 'none'
+                }
+
+                return this.field.tooltip || 'always'
+            },
+        }
+    }
 </script>

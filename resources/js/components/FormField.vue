@@ -16,38 +16,36 @@
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors } from 'laravel-nova'
-import vueSlider from 'vue-slider-component'
+    import { FormField, HandlesValidationErrors } from 'laravel-nova'
+    import VueSlider from 'vue-slider-component'
 
-export default {
-    components: {
-        vueSlider,
-    },
-    mixins: [FormField, HandlesValidationErrors],
-
-    props: ['resourceName', 'resourceId', 'field'],
-
-    methods: {
-        /*
-         * Set the initial, internal value for the field.
-         */
-        setInitialValue() {
-            this.value = this.field.value || ''
+    export default {
+        components: {
+            VueSlider,
         },
+        mixins: [FormField, HandlesValidationErrors],
+        props: ['resourceName', 'resourceId', 'field'],
+        methods: {
+            /**
+             * Set the initial, internal value for the field.
+             */
+            setInitialValue() {
+                this.value = this.field.value || ''
+            },
 
-        /**
-         * Fill the given FormData object with the field's internal value.
-         */
-        fill(formData) {
-            formData.append(this.field.attribute, this.value || '')
-        },
+            /**
+             * Fill the given FormData object with the field's internal value.
+             */
+            fill(formData) {
+                formData.append(this.field.attribute, this.value || '')
+            },
 
-        /**
-         * Update the field's internal value.
-         */
-        handleChange(value) {
-            this.value = value
+            /**
+             * Update the field's internal value.
+             */
+            handleChange(value) {
+                this.value = value
+            },
         },
-    },
-}
+    }
 </script>

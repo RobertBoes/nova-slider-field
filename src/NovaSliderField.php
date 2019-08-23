@@ -49,16 +49,22 @@ class NovaSliderField extends Field
      */
     public function withoutTooltip()
     {
-        return $this->withMeta(['tooltip' => false]);
+        return $this->withMeta(['tooltip' => 'none']);
     }
 
-    /**
-     * Show a tooltip on hover on the detail page
-     * @return NovaSliderField
-     */
-    public function tooltipOnHover()
+    public function withoutTooltipOnDetail()
     {
-        return $this->withMeta(['tooltip' => 'hover']);
+        return $this->withMeta(['hideTooltipOnDetail' => true]);
+    }
+
+    public function indexAsValue()
+    {
+        return $this->withMeta(['indexAsValue' => true]);
+    }
+
+    public function detailAsValue()
+    {
+        return $this->withMeta(['detailAsValue' => true]);
     }
 
     /**
