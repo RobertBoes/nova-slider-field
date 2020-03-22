@@ -15,30 +15,30 @@ class NovaSliderField extends Field
 
     /**
      * Set the minimum value, defaults to 0
-     * @param int $min
+     * @param float $min
      * @return NovaSliderField
      */
-    public function min(int $min)
+    public function min(float $min)
     {
         return $this->withMeta(['min' => $min]);
     }
 
     /**
      * Set the maximum value, defaults to 100
-     * @param int $max
+     * @param float $max
      * @return NovaSliderField
      */
-    public function max(int $max)
+    public function max(float $max)
     {
         return $this->withMeta(['max' => $max]);
     }
 
     /**
      * Set the interval of which the slider should increment/decrement, default is 1
-     * @param int $interval
+     * @param float $interval
      * @return NovaSliderField
      */
-    public function interval(int $interval)
+    public function interval(float $interval)
     {
         return $this->withMeta(['interval' => $interval]);
     }
