@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Robertboes\NovaSliderField;
 
 use Laravel\Nova\Fields\Field;
 
-class NovaSliderField extends Field
+class Slider extends Field
 {
     /**
      * The field's component.
@@ -16,9 +17,9 @@ class NovaSliderField extends Field
     /**
      * Set the minimum value, defaults to 0
      * @param float $min
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function min(float $min)
+    public function min(float $min): self
     {
         return $this->withMeta(['min' => $min]);
     }
@@ -26,9 +27,9 @@ class NovaSliderField extends Field
     /**
      * Set the maximum value, defaults to 100
      * @param float $max
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function max(float $max)
+    public function max(float $max): self
     {
         return $this->withMeta(['max' => $max]);
     }
@@ -36,27 +37,27 @@ class NovaSliderField extends Field
     /**
      * Set the interval of which the slider should increment/decrement, default is 1
      * @param float $interval
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function interval(float $interval)
+    public function interval(float $interval): self
     {
         return $this->withMeta(['interval' => $interval]);
     }
 
     /**
      * Don't show a tooltip on the detail page
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function withoutTooltip()
+    public function withoutTooltip(): self
     {
         return $this->withMeta(['tooltip' => false]);
     }
 
     /**
      * Show a tooltip on hover on the detail page
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function tooltipOnHover()
+    public function tooltipOnHover(): self
     {
         return $this->withMeta(['tooltip' => 'hover']);
     }
@@ -64,9 +65,9 @@ class NovaSliderField extends Field
     /**
      * Custom formatter for the text in the tooltip
      * @param string $formatter The format to use, for example "{value} %"
-     * @return NovaSliderField
+     * @return Slider
      */
-    public function formatter(string $formatter)
+    public function formatter(string $formatter): self
     {
         return $this->withMeta(['formatter' => $formatter]);
     }

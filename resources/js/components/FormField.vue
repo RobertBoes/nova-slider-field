@@ -17,11 +17,11 @@
 
 <script>
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
-import vueSlider from 'vue-slider-component'
+import VueSlider from 'vue-slider-component'
 
 export default {
     components: {
-        vueSlider,
+        VueSlider,
     },
     mixins: [FormField, HandlesValidationErrors],
 
